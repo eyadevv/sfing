@@ -7,8 +7,11 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <div id="app">
+      <h1>Visitor Info</h1>
+      <p id="visitor-id">Loading visitor info...</p>
+    </div>
+    <!-- <script type="module" src="/main.js"></script> -->
     <script>
       // Initialize the agent on page load.
       const fpPromise = import(
@@ -20,7 +23,15 @@
         .then((fp) => fp.get())
         .then((result) => {
           const visitorId = result.visitorId;
-          console.log(visitorId);
+          // Display the visitorId in the HTML
+          document.getElementById(
+            "visitor-id"
+          ).textContent = `Visitor ID: ${visitorId}`;
+        })
+        .catch((error) => {
+          console.error("Error loading FingerprintJS:", error);
+          document.getElementById("visitor-id").textContent =
+            "Error loading visitor info.";
         });
     </script>
   </body>
