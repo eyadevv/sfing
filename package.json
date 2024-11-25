@@ -12,6 +12,7 @@
     "vite": "^5.4.10"
   },
   "dependencies": {
-    "@fingerprintjs/fingerprintjs-pro": "^3.11.3"
+    "@fingerprintjs/fingerprintjs-pro": "^3.11.3",
+    "express": "^4.21.1"
   }
 }

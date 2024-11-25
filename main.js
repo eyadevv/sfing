@@ -17,23 +17,3 @@ document.querySelector("#app").innerHTML = `
     </div>
   </div>
 `;
-
-// Initialize the agent on application start.
-const fpPromise = FingerprintJS.load({
-  apiKey: "2a84LvCBBx8okCwgNSnZ",
-});
-
-// Fetch the visitorId and display it on the page.
-fpPromise
-  .then((fp) => fp.get())
-  .then((result) => {
-    // Display the visitorId in the "cc" element
-    console.log(result);
-    document.getElementById(
-      "cc"
-    ).textContent = `Visitor ID: ${result.visitorId}`;
-  })
-  .catch((error) => {
-    // Handle errors and display them on the page
-    document.getElementById("cc").textContent = `Error: ${error.message}`;
-  });
